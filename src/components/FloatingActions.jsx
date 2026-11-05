@@ -23,7 +23,7 @@ export default function FloatingActions() {
       {showTopBtn && (
         <button
           onClick={scrollToTop}
-          className="pointer-events-auto w-11 h-11 bg-[#14151A] hover:bg-[#C89D56] text-[#C89D56] hover:text-[#0D0E11] flex items-center justify-center shadow-2xl border border-[#C89D56]/30 transition-all transform hover:-translate-y-1"
+          className="pointer-events-auto w-11 h-11 bg-[#14151A] hover:bg-[#C89D56] text-[#C89D56] hover:text-[#0D0E11] flex items-center justify-center shadow-2xl border border-[#C89D56]/30 transition-all transform hover:-translate-y-1 cursor-pointer"
           aria-label="Scroll to top"
         >
           <ArrowUp className="w-5 h-5" />

@@ -45,7 +45,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-xs sm:text-sm text-[#FAF8F5]/70 leading-relaxed font-sans max-w-sm">
-              Chethana Ventures is a premier contemporary architecture, structural engineering, and turnkey construction practice. We create monolithic, enduring residential and commercial spaces defined by uncompromising quality.
+              Chethana Ventures is a premier contemporary architecture, structural engineering, and turnkey civil construction practice. We create enduring residential and commercial spaces defined by uncompromising quality.
             </p>
 
             <div className="pt-2">
@@ -98,7 +98,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links (2 cols) */}
+          {/* Quick Links (2 cols) - REMOVED /team */}
           <div className="lg:col-span-2">
             <h4 className="font-serif text-sm font-bold text-[#C89D56] uppercase tracking-widest mb-6">
               Navigation
@@ -118,9 +118,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/packages" className="hover:text-[#C89D56] transition-colors">Packages</Link>
-              </li>
-              <li>
-                <Link to="/team" className="hover:text-[#C89D56] transition-colors">Executive Team</Link>
               </li>
               <li>
                 <Link to="/contact" className="hover:text-[#C89D56] transition-colors">Contact</Link>
@@ -221,9 +218,16 @@ export default function Footer() {
 
         {/* Bottom Legal & Copyright Bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-[#FAF8F5]/50 gap-4">
-          <p>
-            &copy; {new Date().getFullYear()} Chethana Ventures. All rights reserved. Crafting Spaces. Building Trust.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+            <p>
+              &copy; {new Date().getFullYear()} Chethana Ventures. All rights reserved. Crafting Spaces. Building Trust.
+            </p>
+            {COMPANY_INFO.gstn && (
+              <span className="font-mono text-[#C89D56]/80 text-[11px] border border-[#C89D56]/30 px-2 py-0.5 bg-[#14151A]">
+                GSTN: {COMPANY_INFO.gstn}
+              </span>
+            )}
+          </div>
           <div className="flex items-center gap-6">
             <Link to="/contact" className="hover:text-[#C89D56] transition-colors">Privacy Policy</Link>
             <Link to="/contact" className="hover:text-[#C89D56] transition-colors">Terms of Service</Link>

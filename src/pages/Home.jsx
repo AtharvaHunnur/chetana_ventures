@@ -16,13 +16,15 @@ import {
   HardHat,
   Home as HomeIcon,
   Quote,
-  Maximize2
+  Maximize2,
+  MapPin,
+  Calendar,
+  Eye
 } from 'lucide-react';
 import { SERVICES } from '../data/services.js';
-import { PROJECTS } from '../data/projects.js';
+import { PROJECTS, SITE_PHOTOS } from '../data/projects.js';
 import { PACKAGES, PACKAGE_DISCLAIMER } from '../data/packages.js';
 import { TESTIMONIALS } from '../data/testimonials.js';
-import { TEAM_MEMBERS } from '../data/team.js';
 import { COMPANY_INFO } from '../data/company.js';
 import ProjectModal from '../components/ProjectModal.jsx';
 
@@ -87,7 +89,6 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [activeProjectModal, setActiveProjectModal] = useState(null);
   const [testimonialIdx, setTestimonialIdx] = useState(0);
-  const [activePackageTab, setActivePackageTab] = useState('premium');
   const [heroIdx, setHeroIdx] = useState(0);
 
   // Auto-advance hero slides every 8 seconds
@@ -98,7 +99,7 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
-  const categories = ['All', 'Residential', 'Commercial', 'Industrial', 'Interiors', 'Elevations'];
+  const categories = ['All', 'Residential', 'Commercial', 'Elevations'];
 
   const filteredProjects = selectedCategory === 'All'
     ? PROJECTS
@@ -150,12 +151,12 @@ export default function Home() {
             />
           ))}
 
-          {/* Directional Scrim: deep high-contrast gradient on the left for text readability, clear panoramic view on the right */}
+          {/* Directional Scrim */}
           <div className="absolute inset-0 z-[2] bg-gradient-to-r from-[#0D0E11]/95 via-[#0D0E11]/60 md:via-[#0D0E11]/35 to-transparent pointer-events-none"></div>
           <div className="absolute inset-0 z-[2] bg-gradient-to-t from-[#0D0E11] via-transparent to-black/30 pointer-events-none"></div>
         </div>
 
-        {/* Hero Content: Aligned to max-w-[1720px] to match Navbar exactly and eliminate page-end gaps */}
+        {/* Hero Content */}
         <div className="relative z-10 w-full max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 2xl:px-20 flex-grow flex flex-col justify-between">
           
           {/* Main Hero Row: 12-Column Balanced Architectural Grid */}
@@ -173,7 +174,7 @@ export default function Home() {
                 />
                 <span className="w-5 h-[1px] bg-[#C89D56]"></span>
                 <span className="text-[11px] sm:text-xs uppercase tracking-[0.25em] font-sans font-bold text-[#C89D56]">
-                  CHETHANA VENTURES &middot; CONTEMPORARY ARCHITECTURAL LUXURY
+                  CHETHANA VENTURES &middot; CIVIL CONTRACTORS &amp; BUILDERS
                 </span>
               </div>
 
@@ -187,11 +188,11 @@ export default function Home() {
                 {HERO_SLIDES[heroIdx].subheading}
               </p>
 
-              {/* Primary Action Buttons (Clean & Professional) */}
+              {/* Primary Action Buttons */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <Link
                   to="/projects"
-                  className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#C89D56] hover:bg-[#DFBC7E] text-[#0D0E11] font-bold text-xs uppercase tracking-widest transition-all shadow-lg hover:shadow-xl"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#C89D56] hover:bg-[#DFBC7E] text-[#0D0E11] font-bold text-xs uppercase tracking-widest transition-all shadow-lg hover:shadow-xl cursor-pointer"
                 >
                   <span>Explore Our Projects</span>
                   <ArrowRight className="w-4 h-4" />
@@ -199,7 +200,7 @@ export default function Home() {
 
                 <Link
                   to="/get-quote"
-                  className="inline-flex items-center gap-2.5 px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-xs font-semibold uppercase tracking-widest border border-white/25 transition-all"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-xs font-semibold uppercase tracking-widest border border-white/25 transition-all cursor-pointer"
                 >
                   <span>Start Your Project</span>
                   <ArrowUpRight className="w-4 h-4 text-[#C89D56]" />
@@ -208,7 +209,7 @@ export default function Home() {
 
             </div>
 
-            {/* Right Column: Architectural Landmark Card (Anchors the right screen edge seamlessly) */}
+            {/* Right Column: Architectural Landmark Card */}
             <div className="hidden lg:flex lg:col-span-5 xl:col-span-4 justify-end">
               <div className="w-full max-w-md bg-[#0D0E11]/80 backdrop-blur-xl border border-[#C89D56]/35 p-7 shadow-2xl relative">
                 <div className="flex items-center justify-between pb-3.5 border-b border-white/10">
@@ -277,7 +278,7 @@ export default function Home() {
 
           </div>
 
-          {/* Bottom Full-Width Status Bar spanning edge-to-edge */}
+          {/* Bottom Full-Width Status Bar */}
           <div className="w-full pt-6 mt-auto border-t border-white/15">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 text-xs text-[#F8F6F0]/80">
               
@@ -299,7 +300,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right: Slide indicators and mobile arrows */}
+              {/* Right: Slide indicators */}
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-2">
                   {HERO_SLIDES.map((slide, idx) => (
@@ -352,26 +353,29 @@ export default function Home() {
         <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 2xl:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            {/* Left: Overlapping Architectural Photography & Numerical Marker */}
+            {/* Left: Overlapping Photography */}
             <div className="lg:col-span-6 relative">
-              {/* Primary Large Image */}
+              {/* Primary Large Image: High-definition architectural render */}
               <div className="relative aspect-[4/3] w-full overflow-hidden shadow-xl border border-[#1A1B22]/10 bg-[#EFECE4]">
                 <img
                   src="/assets/projects/project_2.webp"
-                  alt="Chethana Ventures Punith Luxury Residence"
+                  alt="Chethana Ventures Residence"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
                 />
               </div>
 
-              {/* Secondary Overlapping Image */}
+              {/* Secondary Overlapping Image: Office Signage */}
               <div className="absolute -bottom-8 -right-4 sm:-right-8 w-1/2 aspect-[4/3] shadow-2xl border-4 border-[#F8F6F0] hidden sm:block overflow-hidden bg-[#EFECE4]">
                 <img
-                  src="/assets/projects/project_5.webp"
-                  alt="Corner Terrace Villa Execution"
+                  src="/assets/photos/office_signage.webp"
+                  alt="Chethana Ventures Corporate Office"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
                 />
+                <div className="absolute bottom-2 left-2 right-2 bg-[#0D0E11]/90 text-[#C89D56] text-[10px] font-mono px-2 py-0.5 truncate text-center">
+                  Chethana Ventures Studio
+                </div>
               </div>
 
               {/* Decorative Numerical Marker */}
@@ -397,7 +401,7 @@ export default function Home() {
               </h2>
 
               <p className="text-sm md:text-base text-[#4F535B] leading-relaxed font-sans">
-                Chethana Ventures is a premier multidisciplinary construction and design practice. We bridge the gap between aspirational architectural concepts and uncompromising structural reality.
+                Chethana Ventures is a premier multidisciplinary construction and civil engineering practice. We bridge the gap between aspirational architectural concepts and uncompromising structural reality.
               </p>
 
               <p className="text-sm text-[#4F535B] leading-relaxed font-sans">
@@ -482,7 +486,7 @@ export default function Home() {
               Complete Solutions. One Trusted Partner.
             </h2>
             <p className="text-sm text-[#4F535B] leading-relaxed">
-              Explore our six integrated practice areas. From individual dream residences to commercial hubs and turnkey project management, we handle every phase.
+              Explore our core practice areas. From individual dream residences to commercial hubs and turnkey project management, we handle every phase.
             </p>
           </div>
 
@@ -557,7 +561,7 @@ export default function Home() {
                   Commercial Construction
                 </h3>
                 <p className="text-xs text-[#4F535B] leading-relaxed">
-                  Offices, retail complexes, and hospitality spaces designed for longevity, high human traffic, and low maintenance overheads.
+                  Offices, retail complexes, and commercial hubs designed for longevity, high footfall, and low maintenance overheads.
                 </p>
               </div>
               <div className="pt-4 border-t border-[#1A1B22]/10 mt-5">
@@ -639,7 +643,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Service 5 & 6: Interior Design & Turnkey Solutions (Spans 1 col each) */}
+            {/* Service 5: Interior Design & Styling */}
             <div className="group bg-white border border-[#1A1B22]/10 overflow-hidden flex flex-col justify-between p-6 hover:border-[#C89D56] transition-all">
               <div className="relative aspect-video w-full mb-5 overflow-hidden bg-[#EFECE4]">
                 <img
@@ -682,13 +686,13 @@ export default function Home() {
               <h3 className="font-serif text-xl sm:text-2xl font-bold">
                 Looking for 100% Turnkey Solutions?
               </h3>
-              <p className="text-xs text-[#F8F6F0]/80 max-w-xl">
+              <p className="text-xs text-[#F8F6F0]/85 max-w-xl">
                 We manage everything—statutory approvals, material procurement, contractor supervision, and final cleaning. Single-point accountability from foundation to key handover.
               </p>
             </div>
             <Link
               to="/services#turnkey-solutions"
-              className="px-6 py-3 bg-[#C89D56] hover:bg-[#DFBC7E] text-[#0D0E11] font-bold text-xs font-semibold uppercase tracking-wider transition-colors shrink-0"
+              className="px-6 py-3 bg-[#C89D56] hover:bg-[#DFBC7E] text-[#0D0E11] font-bold text-xs uppercase tracking-wider transition-colors shrink-0 shadow-md"
             >
               Learn About Turnkey Model
             </Link>
@@ -698,7 +702,7 @@ export default function Home() {
       </section>
 
       {/* ========================================================
-          SECTION 4: FEATURED PROJECTS (Architectural Portfolio)
+          SECTION 4: FEATURED REAL PROJECTS & PORTFOLIO
           ======================================================== */}
       <section className="py-20 md:py-28 bg-[#F8F6F0]">
         <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 2xl:px-20">
@@ -716,7 +720,7 @@ export default function Home() {
                 Spaces That Speak for Themselves.
               </h2>
               <p className="text-sm text-[#4F535B]">
-                Explore our curated architectural showcases across residential villas, commercial landmarks, and bespoke luxury interiors.
+                Explore our showcases across residential villas, commercial landmarks, and structural civil projects.
               </p>
             </div>
 
@@ -726,7 +730,7 @@ export default function Home() {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3.5 py-1.5 text-xs font-medium tracking-wide transition-all ${
+                  className={`px-3.5 py-1.5 text-xs font-medium tracking-wide transition-all cursor-pointer ${
                     selectedCategory === cat
                       ? 'bg-[#0D0E11] text-white shadow-sm'
                       : 'text-[#4F535B] hover:text-[#0D0E11]'
@@ -738,9 +742,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Asymmetrical Project Grid */}
+          {/* Project Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, idx) => (
+            {filteredProjects.map((project) => (
               <div
                 key={project.id}
                 onClick={() => setActiveProjectModal(project)}
@@ -754,13 +758,18 @@ export default function Home() {
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-60 group-hover:opacity-85 transition-opacity"></div>
                   
                   {/* Category & Status Overlay */}
                   <div className="absolute top-4 left-4 flex items-center gap-2">
-                    <span className="bg-[#0D0E11]/90 backdrop-blur-md text-white text-[10px] uppercase font-mono px-2.5 py-1 tracking-wider">
+                    <span className="bg-[#0D0E11]/90 backdrop-blur-md text-white text-[10px] uppercase font-mono px-2.5 py-1 tracking-wider border border-[#C89D56]/30">
                       {project.category}
                     </span>
+                    {project.status && (
+                      <span className="bg-[#C89D56] text-[#0D0E11] text-[10px] font-mono px-2 py-0.5 font-bold">
+                        {project.status.includes('Progress') ? 'Live Site' : project.status}
+                      </span>
+                    )}
                   </div>
 
                   <div className="absolute bottom-4 left-4 right-4 text-white">
@@ -799,7 +808,7 @@ export default function Home() {
           <div className="mt-12 text-center">
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#0D0E11] hover:bg-[#DFBC7E] text-white text-xs font-semibold uppercase tracking-widest transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#0D0E11] hover:bg-[#DFBC7E] hover:text-[#0D0E11] text-white text-xs font-semibold uppercase tracking-widest transition-colors shadow-md"
             >
               <span>View Full Portfolio Gallery</span>
               <ArrowRight className="w-4 h-4 text-[#C89D56]" />
@@ -810,7 +819,154 @@ export default function Home() {
       </section>
 
       {/* ========================================================
-          SECTION 5: OUR CONSTRUCTION PROCESS (5-Step Timeline)
+          SECTION 5: CORPORATE HEADQUARTERS & DESIGN STUDIO
+          ======================================================== */}
+      <section className="py-20 md:py-28 bg-[#EFECE4] border-y border-[#1A1B22]/10">
+        <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 2xl:px-20">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left: Chethana Ventures Corporate Building Photo */}
+            <div className="lg:col-span-7">
+              <div 
+                onClick={() => setActiveProjectModal(PROJECTS.find(p => p.id === 'chethana-corporate-office'))}
+                className="group cursor-pointer relative bg-white border border-[#1A1B22]/15 shadow-2xl overflow-hidden"
+              >
+                <div className="relative aspect-[16/11] sm:aspect-[16/10] w-full overflow-hidden bg-[#0D0E11]">
+                  <img
+                    src="/assets/photos/office_signage.webp"
+                    alt="Chethana Ventures Corporate Headquarters Building"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    style={{ imageRendering: '-webkit-optimize-contrast' }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                  
+                  {/* Badge */}
+                  <div className="absolute top-4 left-4 bg-[#0D0E11]/90 backdrop-blur-md text-white text-[11px] uppercase font-mono px-3 py-1.5 border border-[#C89D56]/40 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#C89D56]"></span>
+                    <span>Corporate Headquarters &middot; Bengaluru</span>
+                  </div>
+
+                  {/* Expand icon */}
+                  <div className="absolute top-4 right-4 w-9 h-9 bg-black/60 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Maximize2 className="w-4 h-4 text-[#DFBC7E]" />
+                  </div>
+
+                  {/* Bottom caption */}
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <span className="text-xs text-[#DFBC7E] font-mono block mb-1">
+                      Design &middot; Constructions &middot; Interiors
+                    </span>
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold">
+                      Chethana Ventures Corporate Building
+                    </h3>
+                  </div>
+                </div>
+
+                {/* Card footer */}
+                <div className="p-4 sm:p-5 bg-white border-t border-[#1A1B22]/10 flex flex-wrap items-center justify-between gap-3 text-xs">
+                  <div className="flex items-center gap-2 font-mono text-[#4F535B]">
+                    <span className="text-[#0D0E11] font-semibold">GSTN:</span>
+                    <span className="bg-[#EFECE4] px-2 py-0.5 text-[#0D0E11]">29AVIPR1428G2ZC</span>
+                  </div>
+                  <span className="text-[#C89D56] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    <span>Click to View Full Size</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Studio & Consultation Details */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="space-y-3">
+                <div className="inline-flex items-center gap-2">
+                  <span className="w-6 h-[1px] bg-[#C89D56]"></span>
+                  <span className="text-xs uppercase tracking-[0.25em] font-sans font-bold text-[#C89D56]">
+                    VISIT OUR HEADQUARTERS
+                  </span>
+                </div>
+                <h2 className="font-serif text-3xl sm:text-4xl text-[#0D0E11] font-bold leading-tight">
+                  Where Architectural Vision Meets Concrete Reality.
+                </h2>
+                <p className="text-sm text-[#4F535B] leading-relaxed">
+                  Our corporate building in Bengaluru houses our comprehensive civil engineering practice, architectural studios, and client consultation suites. We invite you to experience our quality standards in person.
+                </p>
+              </div>
+
+              {/* Highlights List */}
+              <div className="space-y-3.5 pt-2">
+                <div className="p-4 bg-white border border-[#1A1B22]/10 flex items-start gap-3.5 shadow-sm">
+                  <div className="w-8 h-8 rounded-sm bg-[#0D0E11] text-[#DFBC7E] flex items-center justify-center shrink-0 mt-0.5 font-serif font-bold text-sm">
+                    01
+                  </div>
+                  <div>
+                    <h4 className="font-serif font-bold text-sm text-[#0D0E11]">
+                      3D Elevation &amp; Architectural Reviews
+                    </h4>
+                    <p className="text-xs text-[#4F535B] mt-0.5 leading-relaxed">
+                      Walk through realistic 3D exterior renders, interior elevations, and structural drawings with our lead architects.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-4 bg-white border border-[#1A1B22]/10 flex items-start gap-3.5 shadow-sm">
+                  <div className="w-8 h-8 rounded-sm bg-[#0D0E11] text-[#DFBC7E] flex items-center justify-center shrink-0 mt-0.5 font-serif font-bold text-sm">
+                    02
+                  </div>
+                  <div>
+                    <h4 className="font-serif font-bold text-sm text-[#0D0E11]">
+                      Physical Material Selection Library
+                    </h4>
+                    <p className="text-xs text-[#4F535B] mt-0.5 leading-relaxed">
+                      Touch and compare certified Fe-550D TMT steel samples, granite slabs, Italian marble, UPVC acoustic windows, and CP fittings.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-4 bg-white border border-[#1A1B22]/10 flex items-start gap-3.5 shadow-sm">
+                  <div className="w-8 h-8 rounded-sm bg-[#0D0E11] text-[#DFBC7E] flex items-center justify-center shrink-0 mt-0.5 font-serif font-bold text-sm">
+                    03
+                  </div>
+                  <div>
+                    <h4 className="font-serif font-bold text-sm text-[#0D0E11]">
+                      Itemized BOQ &amp; Transparent Contracts
+                    </h4>
+                    <p className="text-xs text-[#4F535B] mt-0.5 leading-relaxed">
+                      Receive clear, item-by-item cost breakdowns with stage-gate payment milestones and zero hidden surprises.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-4 flex flex-col sm:flex-row gap-3">
+                <Link
+                  to="/get-quote"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#0D0E11] hover:bg-[#C89D56] hover:text-[#0D0E11] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md"
+                >
+                  <span>Book Studio Consultation</span>
+                  <ArrowRight className="w-4 h-4 text-[#DFBC7E]" />
+                </Link>
+                <a
+                  href={COMPANY_INFO.whatsappUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-[#0D0E11]/30 hover:border-[#0D0E11] text-[#0D0E11] text-xs font-semibold uppercase tracking-wider transition-all bg-white"
+                >
+                  <span>Chat on WhatsApp</span>
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ========================================================
+          SECTION 6: OUR CONSTRUCTION PROCESS (5-Step Timeline)
           ======================================================== */}
       <section className="py-20 md:py-28 bg-[#0D0E11] text-[#F8F6F0]">
         <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 2xl:px-20">
@@ -830,7 +986,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Timeline Process Cards (Horizontal on Desktop, Vertical on Mobile) */}
+          {/* Timeline Process Cards */}
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
             
             {/* Step 1 */}
@@ -840,7 +996,7 @@ export default function Home() {
                 <h3 className="font-serif text-base font-bold text-white mb-2">
                   Consultation
                 </h3>
-                <p className="text-xs text-[#F8F6F0]/70 leading-relaxed">
+                <p className="text-xs text-[#F8F6F0]/75 leading-relaxed">
                   Understand customer requirements, lifestyle preferences, budget constraints, and site orientation expectations.
                 </p>
               </div>
@@ -858,7 +1014,7 @@ export default function Home() {
                 <h3 className="font-serif text-base font-bold text-white mb-2">
                   Planning &amp; Design
                 </h3>
-                <p className="text-xs text-[#F8F6F0]/70 leading-relaxed">
+                <p className="text-xs text-[#F8F6F0]/75 leading-relaxed">
                   Prepare architectural floor plans, structural engineering calculations, 3D elevations, and municipal approval packages.
                 </p>
               </div>
@@ -876,7 +1032,7 @@ export default function Home() {
                 <h3 className="font-serif text-base font-bold text-white mb-2">
                   Estimation &amp; Approval
                 </h3>
-                <p className="text-xs text-[#F8F6F0]/70 leading-relaxed">
+                <p className="text-xs text-[#F8F6F0]/75 leading-relaxed">
                   Finalize comprehensive scope of work, material grade specifications, fixed stage-gate pricing, and critical path timeline.
                 </p>
               </div>
@@ -894,7 +1050,7 @@ export default function Home() {
                 <h3 className="font-serif text-base font-bold text-white mb-2">
                   Construction &amp; Execution
                 </h3>
-                <p className="text-xs text-[#F8F6F0]/70 leading-relaxed">
+                <p className="text-xs text-[#F8F6F0]/75 leading-relaxed">
                   Coordinate civil execution, soil compaction, rebar inspections, curing protocols, and continuous on-site QC governance.
                 </p>
               </div>
@@ -912,7 +1068,7 @@ export default function Home() {
                 <h3 className="font-serif text-base font-bold text-white mb-2">
                   Finishing &amp; Handover
                 </h3>
-                <p className="text-xs text-[#F8F6F0]/70 leading-relaxed">
+                <p className="text-xs text-[#F8F6F0]/75 leading-relaxed">
                   Complete millwork, stone polishing, sanitary testing, electrical commissioning, deep industrial cleaning, and key handover.
                 </p>
               </div>
@@ -929,9 +1085,9 @@ export default function Home() {
       </section>
 
       {/* ========================================================
-          SECTION 6: WHY CHOOSE US (Dark Forest & Copper Focus)
+          SECTION 7: THE CHETHANA STANDARD (Why Choose Us)
           ======================================================== */}
-      <section className="py-20 md:py-28 bg-[#1A1B22] text-white">
+      <section className="py-20 md:py-28 bg-[#14151A] text-white">
         <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 2xl:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
@@ -955,7 +1111,7 @@ export default function Home() {
                 <span className="text-xs uppercase tracking-widest text-[#C89D56] font-mono">
                   Transparent Governance
                 </span>
-                <p className="text-xs text-[#F8F6F0]/85 leading-relaxed">
+                <p className="text-xs text-[#F8F6F0]/90 leading-relaxed">
                   "Our clients receive unedited digital test reports for steel tensile strength, concrete slump and cube compression tests at every casting stage."
                 </p>
               </div>
@@ -964,50 +1120,50 @@ export default function Home() {
             {/* Right: Numbered Highlights Grid */}
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
               
-              <div className="p-6 bg-[#0D0E11]/40 border border-white/10 space-y-2">
+              <div className="p-6 bg-[#0D0E11]/60 border border-white/10 space-y-2">
                 <span className="text-xs font-mono font-bold text-[#C89D56]">01 / MATERIALS</span>
                 <h3 className="font-serif text-base font-bold text-white">Quality Materials</h3>
-                <p className="text-xs text-[#F8F6F0]/70 leading-relaxed">
+                <p className="text-xs text-[#F8F6F0]/75 leading-relaxed">
                   Only Tier-1 certified steel brands (Tata Tiscon / JSW) and high-grade 53 OPC cement directly sourced from authorized plants.
                 </p>
               </div>
 
-              <div className="p-6 bg-[#0D0E11]/40 border border-white/10 space-y-2">
+              <div className="p-6 bg-[#0D0E11]/60 border border-white/10 space-y-2">
                 <span className="text-xs font-mono font-bold text-[#C89D56]">02 / TALENT</span>
                 <h3 className="font-serif text-base font-bold text-white">Skilled Professionals</h3>
-                <p className="text-xs text-[#F8F6F0]/70 leading-relaxed">
+                <p className="text-xs text-[#F8F6F0]/75 leading-relaxed">
                   In-house licensed structural consultants, experienced site engineers, and master stone masons with decades of expertise.
                 </p>
               </div>
 
-              <div className="p-6 bg-[#0D0E11]/40 border border-white/10 space-y-2">
+              <div className="p-6 bg-[#0D0E11]/60 border border-white/10 space-y-2">
                 <span className="text-xs font-mono font-bold text-[#C89D56]">03 / PRICING</span>
                 <h3 className="font-serif text-base font-bold text-white">Transparent Pricing</h3>
-                <p className="text-xs text-[#F8F6F0]/70 leading-relaxed">
+                <p className="text-xs text-[#F8F6F0]/75 leading-relaxed">
                   Comprehensive bill of quantities detailing exact brand names, tile sizes, pipe classes, and payment stage milestones.
                 </p>
               </div>
 
-              <div className="p-6 bg-[#0D0E11]/40 border border-white/10 space-y-2">
+              <div className="p-6 bg-[#0D0E11]/60 border border-white/10 space-y-2">
                 <span className="text-xs font-mono font-bold text-[#C89D56]">04 / TIMELINE</span>
                 <h3 className="font-serif text-base font-bold text-white">Planned Execution</h3>
-                <p className="text-xs text-[#F8F6F0]/70 leading-relaxed">
+                <p className="text-xs text-[#F8F6F0]/75 leading-relaxed">
                   Digitally tracked milestone schedules with buffer allocations for monsoons and seasonal curing requirements.
                 </p>
               </div>
 
-              <div className="p-6 bg-[#0D0E11]/40 border border-white/10 space-y-2">
+              <div className="p-6 bg-[#0D0E11]/60 border border-white/10 space-y-2">
                 <span className="text-xs font-mono font-bold text-[#C89D56]">05 / CLIENT FIRST</span>
                 <h3 className="font-serif text-base font-bold text-white">Customer-Focused Approach</h3>
-                <p className="text-xs text-[#F8F6F0]/70 leading-relaxed">
+                <p className="text-xs text-[#F8F6F0]/75 leading-relaxed">
                   Dedicated single point of contact with weekly video calls and milestone sign-off prior to releasing stage payments.
                 </p>
               </div>
 
-              <div className="p-6 bg-[#0D0E11]/40 border border-white/10 space-y-2">
+              <div className="p-6 bg-[#0D0E11]/60 border border-white/10 space-y-2">
                 <span className="text-xs font-mono font-bold text-[#C89D56]">06 / ATTENTION</span>
                 <h3 className="font-serif text-base font-bold text-white">Attention to Detail</h3>
-                <p className="text-xs text-[#F8F6F0]/70 leading-relaxed">
+                <p className="text-xs text-[#F8F6F0]/75 leading-relaxed">
                   Meticulous waterproofing coats, anti-termite soil barriers, concealed expansion joints, and laser-aligned tile grooves.
                 </p>
               </div>
@@ -1019,7 +1175,7 @@ export default function Home() {
       </section>
 
       {/* ========================================================
-          SECTION 7: CONSTRUCTION PACKAGES (4 Tiers)
+          SECTION 8: CONSTRUCTION PACKAGES (4 Tiers)
           ======================================================== */}
       <section className="py-20 md:py-28 bg-[#F8F6F0]">
         <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 2xl:px-20">
@@ -1112,7 +1268,7 @@ export default function Home() {
                     to={`/packages#${pkg.id}`}
                     className={`block w-full text-center py-2.5 text-xs font-semibold uppercase tracking-wider transition-colors ${
                       pkg.isPopular
-                        ? 'bg-[#0D0E11] hover:bg-[#DFBC7E] text-white'
+                        ? 'bg-[#0D0E11] hover:bg-[#DFBC7E] hover:text-[#0D0E11] text-white'
                         : 'border border-[#0D0E11] text-[#0D0E11] hover:bg-[#0D0E11] hover:text-white'
                     }`}
                   >
@@ -1143,9 +1299,9 @@ export default function Home() {
       </section>
 
       {/* ========================================================
-          SECTION 8: PROJECT NUMBERS (Animated Editorial Statistics)
+          SECTION 9: PROJECT NUMBERS (Verified Statistics)
           ======================================================== */}
-      <section className="py-16 md:py-24 bg-[#0D0E11] text-white border-y border-[#C89D56]/20">
+      <section className="py-16 md:py-24 bg-[#0D0E11] text-white border-y border-[#C89D56]/30">
         <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 2xl:px-20">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center md:text-left">
             
@@ -1156,7 +1312,7 @@ export default function Home() {
               <span className="text-xs uppercase tracking-widest text-[#C89D56] font-semibold block">
                 Completed Projects
               </span>
-              <span className="text-[10px] text-[#F8F6F0]/50 font-mono block">
+              <span className="text-[10px] text-[#F8F6F0]/60 font-mono block">
                 *Verified demonstration figure
               </span>
             </div>
@@ -1168,7 +1324,7 @@ export default function Home() {
               <span className="text-xs uppercase tracking-widest text-[#C89D56] font-semibold block">
                 Happy Clients
               </span>
-              <span className="text-[10px] text-[#F8F6F0]/50 font-mono block">
+              <span className="text-[10px] text-[#F8F6F0]/60 font-mono block">
                 *Client satisfaction rate
               </span>
             </div>
@@ -1180,7 +1336,7 @@ export default function Home() {
               <span className="text-xs uppercase tracking-widest text-[#C89D56] font-semibold block">
                 Years of Expertise
               </span>
-              <span className="text-[10px] text-[#F8F6F0]/50 font-mono block">
+              <span className="text-[10px] text-[#F8F6F0]/60 font-mono block">
                 *Engineering leadership experience
               </span>
             </div>
@@ -1192,7 +1348,7 @@ export default function Home() {
               <span className="text-xs uppercase tracking-widest text-[#C89D56] font-semibold block">
                 Active Sites Supervised
               </span>
-              <span className="text-[10px] text-[#F8F6F0]/50 font-mono block">
+              <span className="text-[10px] text-[#F8F6F0]/60 font-mono block">
                 *Current ongoing operations
               </span>
             </div>
@@ -1202,7 +1358,7 @@ export default function Home() {
       </section>
 
       {/* ========================================================
-          SECTION 9: CLIENT TESTIMONIALS (Carousel)
+          SECTION 10: CLIENT TESTIMONIALS (Carousel)
           ======================================================== */}
       <section className="py-20 md:py-28 bg-[#F8F6F0]">
         <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 2xl:px-20">
@@ -1227,14 +1383,14 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <button
                 onClick={handlePrevTestimonial}
-                className="w-10 h-10 border border-[#1A1B22]/20 bg-white hover:bg-[#0D0E11] hover:text-white flex items-center justify-center transition-colors"
+                className="w-10 h-10 border border-[#1A1B22]/20 bg-white hover:bg-[#0D0E11] hover:text-white flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={handleNextTestimonial}
-                className="w-10 h-10 border border-[#1A1B22]/20 bg-white hover:bg-[#0D0E11] hover:text-white flex items-center justify-center transition-colors"
+                className="w-10 h-10 border border-[#1A1B22]/20 bg-white hover:bg-[#0D0E11] hover:text-white flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="Next testimonial"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -1276,7 +1432,7 @@ export default function Home() {
                 <button
                   key={i}
                   onClick={() => setTestimonialIdx(i)}
-                  className={`h-1.5 transition-all ${
+                  className={`h-1.5 transition-all cursor-pointer ${
                     testimonialIdx === i ? 'w-8 bg-[#0D0E11]' : 'w-2 bg-[#1A1B22]/20'
                   }`}
                   aria-label={`Go to testimonial ${i + 1}`}
@@ -1284,69 +1440,6 @@ export default function Home() {
               ))}
             </div>
 
-          </div>
-
-        </div>
-      </section>
-
-      {/* ========================================================
-          SECTION 10: OUR TEAM (Editorial Team Highlights)
-          ======================================================== */}
-      <section className="py-20 md:py-28 bg-[#EFECE4] border-t border-[#1A1B22]/10">
-        <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 2xl:px-20">
-          
-          <div className="max-w-2xl mb-12 space-y-3">
-            <div className="inline-flex items-center gap-2">
-              <span className="w-6 h-[1px] bg-[#C89D56]"></span>
-              <span className="text-xs uppercase tracking-[0.25em] font-sans font-bold text-[#C89D56]">
-                LEADERSHIP &amp; EXPERTISE
-              </span>
-            </div>
-            <h2 className="font-serif text-3xl sm:text-4xl text-[#0D0E11] font-bold">
-              The People Behind Every Project.
-            </h2>
-            <p className="text-sm text-[#4F535B] leading-relaxed">
-              Our multidisciplinary studio brings together architects, structural consultants, project management professionals, and site supervisors.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {TEAM_MEMBERS.slice(0, 3).map((member) => (
-              <div key={member.id} className="bg-white border border-[#1A1B22]/10 overflow-hidden group">
-                <div className="relative aspect-[4/3] w-full bg-[#EFECE4] overflow-hidden">
-                  <img
-                    src={member.avatar}
-                    alt={member.name}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-3 right-3 bg-black/60 text-white text-[10px] font-mono px-2 py-0.5">
-                    Editable Profile
-                  </div>
-                </div>
-                <div className="p-6 space-y-2">
-                  <span className="text-[11px] font-mono uppercase text-[#C89D56] font-semibold block">
-                    {member.designation}
-                  </span>
-                  <h3 className="font-serif text-lg font-bold text-[#0D0E11]">
-                    {member.name}
-                  </h3>
-                  <p className="text-xs text-[#4F535B] line-clamp-3 leading-relaxed">
-                    {member.bio}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 text-center">
-            <Link
-              to="/team"
-              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#0D0E11] hover:text-[#C89D56] transition-colors border-b-2 border-[#0D0E11] pb-1 hover:border-[#C89D56]"
-            >
-              <span>Meet The Entire Engineering &amp; Design Team</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
           </div>
 
         </div>
@@ -1367,7 +1460,7 @@ export default function Home() {
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="inline-flex items-center justify-center gap-3">
             <span className="w-8 h-[1px] bg-[#C89D56]"></span>
-            <span className="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-[#C89D56]">
+            <span className="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-[#DFBC7E]">
               START YOUR JOURNEY
             </span>
             <span className="w-8 h-[1px] bg-[#C89D56]"></span>
@@ -1378,13 +1471,13 @@ export default function Home() {
           </h2>
 
           <p className="text-sm sm:text-base text-[#F8F6F0]/85 font-sans leading-relaxed max-w-xl mx-auto font-light">
-            Have a vision for your next project? Let's discuss how we can bring it to life with precision engineering and timeless architecture.
+            Have a vision for your next residence, commercial complex, or villa? Let's discuss how we can bring it to life with precision engineering and timeless architecture.
           </p>
 
           <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/get-quote"
-              className="px-8 py-3.5 bg-[#C89D56] hover:bg-[#DFBC7E] text-[#0D0E11] font-bold text-xs font-semibold uppercase tracking-widest transition-all shadow-xl"
+              className="px-8 py-3.5 bg-[#C89D56] hover:bg-[#DFBC7E] text-[#0D0E11] font-bold text-xs uppercase tracking-widest transition-all shadow-xl"
             >
               Start Your Project
             </Link>

@@ -90,9 +90,9 @@ export default function GetQuote() {
     <div className="w-full bg-[#F8F6F0] pt-24 min-h-screen">
       
       {/* Header */}
-      <section className="bg-[#0D0E11] text-white py-12 md:py-16 border-b border-[#C89D56]/20 text-center w-full min-w-full">
+      <section className="bg-[#0D0E11] text-white py-12 md:py-16 border-b border-[#C89D56]/30 text-center w-full min-w-full">
         <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 2xl:px-20 space-y-3">
-          <span className="text-xs uppercase tracking-[0.25em] font-sans font-bold text-[#C89D56] block">
+          <span className="text-xs uppercase tracking-[0.25em] font-sans font-bold text-[#DFBC7E] block">
             PROJECT COST ESTIMATOR &amp; CONSULTATION
           </span>
           <h1 className="font-serif text-3xl sm:text-4xl font-bold">
@@ -116,7 +116,7 @@ export default function GetQuote() {
             <span className={step >= 3 ? 'text-[#0D0E11] font-bold' : ''}>03. Specification Tier</span>
             <span className={step >= 4 ? 'text-[#0D0E11] font-bold' : ''}>04. Review &amp; Contact</span>
           </div>
-          <div className="w-full h-1 bg-[#1A1B22]/10 overflow-hidden">
+          <div className="w-full h-1 bg-[#0D0E11]/10 overflow-hidden">
             <div
               className="h-full bg-[#C89D56] transition-all duration-300"
               style={{ width: `${(step / 4) * 100}%` }}
@@ -125,7 +125,7 @@ export default function GetQuote() {
         </div>
 
         {/* Wizard Form Card */}
-        <div className="bg-white border border-[#1A1B22]/10 shadow-lg p-6 sm:p-10">
+        <div className="bg-white border border-[#0D0E11]/10 shadow-lg p-6 sm:p-10">
           
           {isSubmitted ? (
             <div className="text-center py-12 space-y-5">
@@ -140,8 +140,8 @@ export default function GetQuote() {
               </p>
 
               {/* Estimate Summary Box */}
-              <div className="bg-[#F8F6F0] p-6 max-w-lg mx-auto border border-[#1A1B22]/10 text-left space-y-3">
-                <div className="flex justify-between items-center border-b border-[#1A1B22]/10 pb-2">
+              <div className="bg-[#F8F6F0] p-6 max-w-lg mx-auto border border-[#0D0E11]/10 text-left space-y-3">
+                <div className="flex justify-between items-center border-b border-[#0D0E11]/10 pb-2">
                   <span className="text-xs font-semibold text-[#0D0E11]">Preliminary Baseline Budget:</span>
                   <span className="font-serif text-xl font-bold text-[#0D0E11]">
                     ₹{(calculatedEstimate / 100000).toFixed(2)} Lakhs
@@ -158,13 +158,13 @@ export default function GetQuote() {
               <div className="pt-4 flex flex-wrap justify-center gap-3">
                 <Link
                   to="/"
-                  className="px-6 py-2.5 bg-[#0D0E11] text-white text-xs uppercase tracking-wider font-semibold"
+                  className="px-6 py-2.5 bg-[#0D0E11] text-[#DFBC7E] text-xs uppercase tracking-wider font-semibold cursor-pointer"
                 >
                   Return to Home
                 </Link>
                 <Link
                   to="/packages"
-                  className="px-6 py-2.5 border border-[#0D0E11] text-[#0D0E11] text-xs uppercase tracking-wider font-semibold"
+                  className="px-6 py-2.5 border border-[#0D0E11] text-[#0D0E11] text-xs uppercase tracking-wider font-semibold cursor-pointer"
                 >
                   View Full Package Matrix
                 </Link>
@@ -199,10 +199,10 @@ export default function GetQuote() {
                           className={`p-5 border cursor-pointer transition-all flex items-start gap-4 ${
                             isSelected
                               ? 'border-[#0D0E11] bg-[#F8F6F0] shadow-md ring-1 ring-[#0D0E11]'
-                              : 'border-[#1A1B22]/15 hover:border-[#C89D56] bg-white'
+                              : 'border-[#0D0E11]/15 hover:border-[#C89D56] bg-white'
                           }`}
                         >
-                          <div className={`p-2.5 rounded-none ${isSelected ? 'bg-[#0D0E11] text-white' : 'bg-[#EFECE4] text-[#0D0E11]'}`}>
+                          <div className={`p-2.5 rounded-none ${isSelected ? 'bg-[#0D0E11] text-[#DFBC7E]' : 'bg-[#EFECE4] text-[#0D0E11]'}`}>
                             <IconComponent className="w-5 h-5" />
                           </div>
                           <div>
@@ -220,13 +220,13 @@ export default function GetQuote() {
 
                   {errors.category && <p className="text-xs text-red-600">{errors.category}</p>}
 
-                  <div className="pt-6 border-t border-[#1A1B22]/10 flex justify-end">
+                  <div className="pt-6 border-t border-[#0D0E11]/10 flex justify-end">
                     <button
                       onClick={handleNextStep}
-                      className="px-7 py-3 bg-[#0D0E11] hover:bg-[#DFBC7E] text-white text-xs font-semibold uppercase tracking-wider flex items-center gap-2"
+                      className="px-7 py-3 bg-[#0D0E11] hover:bg-[#C89D56] hover:text-[#0D0E11] text-white text-xs font-semibold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-md"
                     >
                       <span>Continue to Area &amp; Location</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#C89D56]" />
+                      <ArrowRight className="w-3.5 h-3.5 text-[#DFBC7E]" />
                     </button>
                   </div>
                 </div>
@@ -254,7 +254,7 @@ export default function GetQuote() {
                         placeholder="e.g. Indiranagar, Bengaluru or Mysore Road"
                         value={formData.location}
                         onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                        className={`w-full p-3 text-xs bg-[#F8F6F0]/50 border ${errors.location ? 'border-red-500' : 'border-[#1A1B22]/20'} focus:outline-none focus:border-[#0D0E11]`}
+                        className={`w-full p-3 text-xs bg-[#F8F6F0]/50 border ${errors.location ? 'border-red-500' : 'border-[#0D0E11]/20'} focus:outline-none focus:border-[#0D0E11]`}
                       />
                       {errors.location && <p className="text-[11px] text-red-600 mt-1">{errors.location}</p>}
                     </div>
@@ -275,7 +275,7 @@ export default function GetQuote() {
                         step="100"
                         value={formData.area}
                         onChange={(e) => setFormData({ ...formData, area: Number(e.target.value) })}
-                        className="w-full p-3 text-xs bg-[#F8F6F0]/50 border border-[#1A1B22]/20 focus:outline-none focus:border-[#0D0E11]"
+                        className="w-full p-3 text-xs bg-[#F8F6F0]/50 border border-[#0D0E11]/20 focus:outline-none focus:border-[#0D0E11]"
                       />
                       {errors.area && <p className="text-[11px] text-red-600 mt-1">{errors.area}</p>}
                     </div>
@@ -287,7 +287,7 @@ export default function GetQuote() {
                       <select
                         value={formData.timeline}
                         onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                        className="w-full p-3 text-xs bg-[#F8F6F0]/50 border border-[#1A1B22]/20 focus:outline-none focus:border-[#0D0E11]"
+                        className="w-full p-3 text-xs bg-[#F8F6F0]/50 border border-[#0D0E11]/20 focus:outline-none focus:border-[#0D0E11]"
                       >
                         <option value="Immediately (Within 30 days)">Immediately (Within 30 days)</option>
                         <option value="Within 3 months">Within 3 months</option>
@@ -297,20 +297,20 @@ export default function GetQuote() {
                     </div>
                   </div>
 
-                  <div className="pt-6 border-t border-[#1A1B22]/10 flex justify-between">
+                  <div className="pt-6 border-t border-[#0D0E11]/10 flex justify-between">
                     <button
                       onClick={() => setStep(1)}
-                      className="px-5 py-3 border border-[#1A1B22]/20 text-[#1A1B22] text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5"
+                      className="px-5 py-3 border border-[#0D0E11]/20 text-[#0D0E11] text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer"
                     >
                       <ArrowLeft className="w-3.5 h-3.5" />
                       <span>Back</span>
                     </button>
                     <button
                       onClick={handleNextStep}
-                      className="px-7 py-3 bg-[#0D0E11] hover:bg-[#DFBC7E] text-white text-xs font-semibold uppercase tracking-wider flex items-center gap-2"
+                      className="px-7 py-3 bg-[#0D0E11] hover:bg-[#C89D56] hover:text-[#0D0E11] text-white text-xs font-semibold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-md"
                     >
                       <span>Continue to Package Tiers</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#C89D56]" />
+                      <ArrowRight className="w-3.5 h-3.5 text-[#DFBC7E]" />
                     </button>
                   </div>
                 </div>
@@ -339,7 +339,7 @@ export default function GetQuote() {
                           className={`p-4 border cursor-pointer transition-all flex flex-col justify-between ${
                             isSelected
                               ? 'border-[#0D0E11] bg-[#F8F6F0] shadow-md ring-1 ring-[#0D0E11]'
-                              : 'border-[#1A1B22]/15 bg-white hover:border-[#C89D56]'
+                              : 'border-[#0D0E11]/15 bg-white hover:border-[#C89D56]'
                           }`}
                         >
                           <div>
@@ -355,7 +355,7 @@ export default function GetQuote() {
                               {pkg.tagline}
                             </p>
                           </div>
-                          <div className="mt-3 pt-2 border-t border-[#1A1B22]/10 text-[10px] text-[#4F535B]">
+                          <div className="mt-3 pt-2 border-t border-[#0D0E11]/10 text-[10px] text-[#4F535B]">
                             Estimated: ₹{((formData.area * pkg.pricePerSqFt) / 100000).toFixed(2)} Lakhs
                           </div>
                         </div>
@@ -366,13 +366,13 @@ export default function GetQuote() {
                   {/* Calculated Highlight */}
                   <div className="bg-[#0D0E11] text-white p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div>
-                      <span className="text-[10px] uppercase font-mono tracking-wider text-[#C89D56] block">
+                      <span className="text-[10px] uppercase font-mono tracking-wider text-[#DFBC7E] block">
                         Estimated Preliminary Investment
                       </span>
                       <div className="font-serif text-2xl font-bold">
                         ₹{(calculatedEstimate / 100000).toFixed(2)} Lakhs
                       </div>
-                      <span className="text-[11px] text-[#F8F6F0]/70">
+                      <span className="text-[11px] text-[#F8F6F0]/75">
                         ({formData.area.toLocaleString()} sq.ft at {selectedTier.priceDisplay}/sq.ft)
                       </span>
                     </div>
@@ -381,20 +381,20 @@ export default function GetQuote() {
                     </span>
                   </div>
 
-                  <div className="pt-6 border-t border-[#1A1B22]/10 flex justify-between">
+                  <div className="pt-6 border-t border-[#0D0E11]/10 flex justify-between">
                     <button
                       onClick={() => setStep(2)}
-                      className="px-5 py-3 border border-[#1A1B22]/20 text-[#1A1B22] text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5"
+                      className="px-5 py-3 border border-[#0D0E11]/20 text-[#0D0E11] text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer"
                     >
                       <ArrowLeft className="w-3.5 h-3.5" />
                       <span>Back</span>
                     </button>
                     <button
                       onClick={handleNextStep}
-                      className="px-7 py-3 bg-[#0D0E11] hover:bg-[#DFBC7E] text-white text-xs font-semibold uppercase tracking-wider flex items-center gap-2"
+                      className="px-7 py-3 bg-[#0D0E11] hover:bg-[#C89D56] hover:text-[#0D0E11] text-white text-xs font-semibold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-md"
                     >
                       <span>Continue to Final Step</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#C89D56]" />
+                      <ArrowRight className="w-3.5 h-3.5 text-[#DFBC7E]" />
                     </button>
                   </div>
                 </div>
@@ -422,7 +422,7 @@ export default function GetQuote() {
                         placeholder="e.g. Ramesh Iyer"
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                        className={`w-full p-3 text-xs bg-[#F8F6F0]/50 border ${errors.fullName ? 'border-red-500' : 'border-[#1A1B22]/20'} focus:outline-none focus:border-[#0D0E11]`}
+                        className={`w-full p-3 text-xs bg-[#F8F6F0]/50 border ${errors.fullName ? 'border-red-500' : 'border-[#0D0E11]/20'} focus:outline-none focus:border-[#0D0E11]`}
                       />
                       {errors.fullName && <p className="text-[11px] text-red-600 mt-1">{errors.fullName}</p>}
                     </div>
@@ -436,7 +436,7 @@ export default function GetQuote() {
                         placeholder="+91 98450 XXXXX"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className={`w-full p-3 text-xs bg-[#F8F6F0]/50 border ${errors.phone ? 'border-red-500' : 'border-[#1A1B22]/20'} focus:outline-none focus:border-[#0D0E11]`}
+                        className={`w-full p-3 text-xs bg-[#F8F6F0]/50 border ${errors.phone ? 'border-red-500' : 'border-[#0D0E11]/20'} focus:outline-none focus:border-[#0D0E11]`}
                       />
                       {errors.phone && <p className="text-[11px] text-red-600 mt-1">{errors.phone}</p>}
                     </div>
@@ -451,7 +451,7 @@ export default function GetQuote() {
                       placeholder="ramesh@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className={`w-full p-3 text-xs bg-[#F8F6F0]/50 border ${errors.email ? 'border-red-500' : 'border-[#1A1B22]/20'} focus:outline-none focus:border-[#0D0E11]`}
+                      className={`w-full p-3 text-xs bg-[#F8F6F0]/50 border ${errors.email ? 'border-red-500' : 'border-[#0D0E11]/20'} focus:outline-none focus:border-[#0D0E11]`}
                     />
                     {errors.email && <p className="text-[11px] text-red-600 mt-1">{errors.email}</p>}
                   </div>
@@ -465,7 +465,7 @@ export default function GetQuote() {
                       placeholder="e.g. Need basement parking, Italian marble in living room, elevator shaft..."
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      className="w-full p-3 text-xs bg-[#F8F6F0]/50 border border-[#1A1B22]/20 focus:outline-none focus:border-[#0D0E11]"
+                      className="w-full p-3 text-xs bg-[#F8F6F0]/50 border border-[#0D0E11]/20 focus:outline-none focus:border-[#0D0E11]"
                     />
                   </div>
 
@@ -476,18 +476,18 @@ export default function GetQuote() {
                     <div className="text-[#0D0E11] font-semibold">Estimated Baseline: ₹{(calculatedEstimate / 100000).toFixed(2)} Lakhs</div>
                   </div>
 
-                  <div className="pt-6 border-t border-[#1A1B22]/10 flex justify-between">
+                  <div className="pt-6 border-t border-[#0D0E11]/10 flex justify-between">
                     <button
                       type="button"
                       onClick={() => setStep(3)}
-                      className="px-5 py-3 border border-[#1A1B22]/20 text-[#1A1B22] text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5"
+                      className="px-5 py-3 border border-[#0D0E11]/20 text-[#0D0E11] text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer"
                     >
                       <ArrowLeft className="w-3.5 h-3.5" />
                       <span>Back</span>
                     </button>
                     <button
                       type="submit"
-                      className="px-8 py-3 bg-[#0D0E11] hover:bg-[#DFBC7E] text-white text-xs font-semibold uppercase tracking-wider shadow-md"
+                      className="px-8 py-3 bg-[#0D0E11] hover:bg-[#C89D56] hover:text-[#0D0E11] text-white text-xs font-semibold uppercase tracking-wider shadow-md cursor-pointer"
                     >
                       Submit Quote Request
                     </button>

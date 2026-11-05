@@ -65,10 +65,10 @@ export default function Contact() {
     <div className="w-full bg-[#F8F6F0] pt-24 min-h-screen">
       
       {/* Banner */}
-      <section className="bg-[#0D0E11] text-white py-16 md:py-24 border-b border-[#C89D56]/20 relative overflow-hidden w-full min-w-full">
+      <section className="bg-[#0D0E11] text-white py-16 md:py-24 border-b border-[#C89D56]/30 relative overflow-hidden w-full min-w-full">
         <div className="absolute inset-0 z-0 opacity-20 w-full min-w-full h-full min-h-full overflow-hidden">
           <img
-            src="/assets/projects/project_5.webp"
+            src="/assets/projects/project_6.webp"
             alt="Chethana Ventures Studio"
             referrerPolicy="no-referrer"
             className="w-full min-w-full h-full min-h-full max-w-none object-cover object-center"
@@ -79,7 +79,7 @@ export default function Contact() {
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2">
               <span className="w-6 h-[1px] bg-[#C89D56]"></span>
-              <span className="text-xs uppercase tracking-[0.25em] font-sans font-bold text-[#C89D56]">
+              <span className="text-xs uppercase tracking-[0.25em] font-sans font-bold text-[#DFBC7E]">
                 GET IN TOUCH
               </span>
             </div>
@@ -111,9 +111,24 @@ export default function Contact() {
               </p>
             </div>
 
+            {/* Office Photo Cards - Dual View */}
+            <div className="space-y-3">
+              <div className="aspect-[16/10] w-full overflow-hidden border border-[#0D0E11]/10 bg-[#EFECE4] shadow-sm relative group">
+                <img
+                  src="/assets/photos/office_signage.webp"
+                  alt="Chethana Ventures Corporate Headquarters Signage"
+                  className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
+                  style={{ imageRendering: '-webkit-optimize-contrast' }}
+                />
+                <div className="absolute bottom-2 left-2 bg-[#0D0E11]/90 text-[#DFBC7E] text-[10px] font-mono px-2.5 py-1 border border-[#C89D56]/30">
+                  Headquarters &middot; Bengaluru
+                </div>
+              </div>
+            </div>
+
             {/* Info Cards */}
-            <div className="space-y-4 text-xs text-[#1A1B22]">
-              <div className="p-4 bg-white border border-[#1A1B22]/10 flex items-start gap-3">
+            <div className="space-y-4 text-xs text-[#0D0E11]">
+              <div className="p-4 bg-white border border-[#0D0E11]/10 flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#C89D56] shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-[#0D0E11] block font-sans">Office Address:</strong>
@@ -121,7 +136,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="p-4 bg-white border border-[#1A1B22]/10 flex items-start gap-3">
+              <div className="p-4 bg-white border border-[#0D0E11]/10 flex items-start gap-3">
                 <Phone className="w-4 h-4 text-[#C89D56] shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-[#0D0E11] block font-sans">Telephone Consultation:</strong>
@@ -131,7 +146,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="p-4 bg-white border border-[#1A1B22]/10 flex items-start gap-3">
+              <div className="p-4 bg-white border border-[#0D0E11]/10 flex items-start gap-3">
                 <Mail className="w-4 h-4 text-[#C89D56] shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-[#0D0E11] block font-sans">Email Enquiries:</strong>
@@ -141,18 +156,32 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="p-4 bg-white border border-[#1A1B22]/10 flex items-start gap-3">
+              <div className="p-4 bg-white border border-[#0D0E11]/10 flex items-start gap-3">
                 <Clock className="w-4 h-4 text-[#C89D56] shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-[#0D0E11] block font-sans">Office Hours:</strong>
                   <span className="text-[#4F535B]">{COMPANY_INFO.workingHours}</span>
                 </div>
               </div>
+
+              {COMPANY_INFO.gstn && (
+                <div className="p-4 bg-white border border-[#0D0E11]/10 flex items-start gap-3">
+                  <div className="w-4 h-4 text-[#C89D56] shrink-0 mt-0.5 font-mono text-xs font-bold flex items-center justify-center border border-[#C89D56]">
+                    §
+                  </div>
+                  <div>
+                    <strong className="text-[#0D0E11] block font-sans">GST Registration Number:</strong>
+                    <span className="font-mono text-xs text-[#0D0E11] bg-[#EFECE4] px-2 py-0.5 mt-0.5 inline-block">
+                      {COMPANY_INFO.gstn}
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* WhatsApp Direct Action */}
             <div className="p-6 bg-[#0D0E11] text-white border-l-4 border-[#C89D56] space-y-3">
-              <span className="text-[11px] uppercase tracking-widest text-[#C89D56] font-mono block">
+              <span className="text-[11px] uppercase tracking-widest text-[#DFBC7E] font-mono block">
                 PREFER INSTANT CHAT?
               </span>
               <h4 className="font-serif text-lg font-bold">
@@ -173,7 +202,7 @@ export default function Contact() {
             </div>
 
             {/* Map Placeholder */}
-            <div className="bg-[#EFECE4] border border-[#1A1B22]/15 p-6 text-center space-y-2">
+            <div className="bg-[#EFECE4] border border-[#0D0E11]/15 p-6 text-center space-y-2">
               <Compass className="w-6 h-6 text-[#0D0E11] mx-auto" />
               <span className="text-xs font-bold text-[#0D0E11] block">Interactive Map Location</span>
               <p className="text-[11px] text-[#4F535B]">Koramangala 4th Block, 80 Feet Road, Bengaluru</p>
@@ -191,9 +220,9 @@ export default function Contact() {
 
           {/* Right: Validated Contact Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white border border-[#1A1B22]/10 p-8 md:p-10 shadow-sm">
+            <div className="bg-white border border-[#0D0E11]/10 p-8 md:p-10 shadow-sm">
               
-              <div className="border-b border-[#1A1B22]/10 pb-6 mb-6">
+              <div className="border-b border-[#0D0E11]/10 pb-6 mb-6">
                 <span className="text-xs uppercase tracking-widest text-[#C89D56] font-semibold block">
                   PROJECT ENQUIRY
                 </span>
@@ -230,14 +259,13 @@ export default function Contact() {
                         message: ''
                       });
                     }}
-                    className="px-6 py-2.5 bg-[#0D0E11] text-white text-xs uppercase tracking-wider font-semibold"
+                    className="px-6 py-2.5 bg-[#0D0E11] text-[#DFBC7E] text-xs uppercase tracking-wider font-semibold cursor-pointer"
                   >
                     Submit Another Query
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  
                   {/* Full Name & Phone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
@@ -249,7 +277,7 @@ export default function Contact() {
                         placeholder="e.g. Anand K. Murthy"
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                        className={`w-full px-3.5 py-2.5 text-xs bg-[#F8F6F0]/40 border ${errors.fullName ? 'border-red-500' : 'border-[#1A1B22]/20'} focus:outline-none focus:border-[#0D0E11]`}
+                        className={`w-full px-3.5 py-2.5 text-xs bg-[#F8F6F0]/40 border ${errors.fullName ? 'border-red-500' : 'border-[#0D0E11]/20'} focus:outline-none focus:border-[#0D0E11]`}
                       />
                       {errors.fullName && <p className="text-[11px] text-red-600 mt-1">{errors.fullName}</p>}
                     </div>
@@ -263,7 +291,7 @@ export default function Contact() {
                         placeholder="e.g. +91 98450 XXXXX"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className={`w-full px-3.5 py-2.5 text-xs bg-[#F8F6F0]/40 border ${errors.phone ? 'border-red-500' : 'border-[#1A1B22]/20'} focus:outline-none focus:border-[#0D0E11]`}
+                        className={`w-full px-3.5 py-2.5 text-xs bg-[#F8F6F0]/40 border ${errors.phone ? 'border-red-500' : 'border-[#0D0E11]/20'} focus:outline-none focus:border-[#0D0E11]`}
                       />
                       {errors.phone && <p className="text-[11px] text-red-600 mt-1">{errors.phone}</p>}
                     </div>
@@ -280,7 +308,7 @@ export default function Contact() {
                         placeholder="e.g. anand@example.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className={`w-full px-3.5 py-2.5 text-xs bg-[#F8F6F0]/40 border ${errors.email ? 'border-red-500' : 'border-[#1A1B22]/20'} focus:outline-none focus:border-[#0D0E11]`}
+                        className={`w-full px-3.5 py-2.5 text-xs bg-[#F8F6F0]/40 border ${errors.email ? 'border-red-500' : 'border-[#0D0E11]/20'} focus:outline-none focus:border-[#0D0E11]`}
                       />
                       {errors.email && <p className="text-[11px] text-red-600 mt-1">{errors.email}</p>}
                     </div>
@@ -292,7 +320,7 @@ export default function Contact() {
                       <select
                         value={formData.projectType}
                         onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                        className="w-full px-3.5 py-2.5 text-xs bg-[#F8F6F0]/40 border border-[#1A1B22]/20 focus:outline-none focus:border-[#0D0E11]"
+                        className="w-full px-3.5 py-2.5 text-xs bg-[#F8F6F0]/40 border border-[#0D0E11]/20 focus:outline-none focus:border-[#0D0E11]"
                       >
                         <option value="Residential Construction">Residential Construction (Villa / Independent House)</option>
                         <option value="Commercial Construction">Commercial Construction (Office / Retail)</option>
@@ -316,7 +344,7 @@ export default function Contact() {
                         placeholder="e.g. Whitefield, Bengaluru"
                         value={formData.location}
                         onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                        className={`w-full px-3.5 py-2.5 text-xs bg-[#F8F6F0]/40 border ${errors.location ? 'border-red-500' : 'border-[#1A1B22]/20'} focus:outline-none focus:border-[#0D0E11]`}
+                        className={`w-full px-3.5 py-2.5 text-xs bg-[#F8F6F0]/40 border ${errors.location ? 'border-red-500' : 'border-[#0D0E11]/20'} focus:outline-none focus:border-[#0D0E11]`}
                       />
                       {errors.location && <p className="text-[11px] text-red-600 mt-1">{errors.location}</p>}
                     </div>
@@ -330,7 +358,7 @@ export default function Contact() {
                         placeholder="e.g. ₹75 Lakhs - ₹1.5 Crore"
                         value={formData.budget}
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                        className="w-full px-3.5 py-2.5 text-xs bg-[#F8F6F0]/40 border border-[#1A1B22]/20 focus:outline-none focus:border-[#0D0E11]"
+                        className="w-full px-3.5 py-2.5 text-xs bg-[#F8F6F0]/40 border border-[#0D0E11]/20 focus:outline-none focus:border-[#0D0E11]"
                       />
                     </div>
                   </div>
@@ -345,7 +373,7 @@ export default function Contact() {
                       placeholder="e.g. 30x40 site (1,200 sq.ft) or 3,500 sq.ft built-up"
                       value={formData.plotArea}
                       onChange={(e) => setFormData({ ...formData, plotArea: e.target.value })}
-                      className="w-full px-3.5 py-2.5 text-xs bg-[#F8F6F0]/40 border border-[#1A1B22]/20 focus:outline-none focus:border-[#0D0E11]"
+                      className="w-full px-3.5 py-2.5 text-xs bg-[#F8F6F0]/40 border border-[#0D0E11]/20 focus:outline-none focus:border-[#0D0E11]"
                     />
                   </div>
 
@@ -359,7 +387,7 @@ export default function Contact() {
                       placeholder="Share details regarding number of floors, timeline, architectural style, or specific questions..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className={`w-full px-3.5 py-2.5 text-xs bg-[#F8F6F0]/40 border ${errors.message ? 'border-red-500' : 'border-[#1A1B22]/20'} focus:outline-none focus:border-[#0D0E11]`}
+                      className={`w-full px-3.5 py-2.5 text-xs bg-[#F8F6F0]/40 border ${errors.message ? 'border-red-500' : 'border-[#0D0E11]/20'} focus:outline-none focus:border-[#0D0E11]`}
                     />
                     {errors.message && <p className="text-[11px] text-red-600 mt-1">{errors.message}</p>}
                   </div>
@@ -369,14 +397,14 @@ export default function Contact() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-3.5 bg-[#0D0E11] hover:bg-[#DFBC7E] text-white text-xs font-semibold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 shadow-md disabled:opacity-70"
+                      className="w-full py-3.5 bg-[#0D0E11] hover:bg-[#C89D56] hover:text-[#0D0E11] text-white text-xs font-semibold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 shadow-md disabled:opacity-70 cursor-pointer"
                     >
                       {isSubmitting ? (
                         <span>Processing Brief...</span>
                       ) : (
                         <>
                           <span>Submit Project Enquiry</span>
-                          <Send className="w-3.5 h-3.5 text-[#C89D56]" />
+                          <Send className="w-3.5 h-3.5 text-[#DFBC7E]" />
                         </>
                       )}
                     </button>

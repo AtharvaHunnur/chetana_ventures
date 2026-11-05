@@ -27,6 +27,12 @@
   h1, h2, h3, h4, .font-serif {
     font-family: var(--font-serif);
   }
+
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -webkit-backface-visibility: hidden;
+  }
 }
 
 /* Custom luxury scrollbar */
@@ -37,9 +43,14 @@
   background: #0D0E11;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C89D56/40;
+  background: rgba(200, 157, 86, 0.4);
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #C89D56;
+}
+
+/* Smooth section transitions */
+section {
+  transition: background-color 0.25s ease;
 }

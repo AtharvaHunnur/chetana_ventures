@@ -24,7 +24,7 @@ export default function Packages() {
     <div className="w-full bg-[#F8F6F0] pt-24 min-h-screen">
       
       {/* Banner */}
-      <section className="bg-[#0D0E11] text-white py-16 md:py-24 border-b border-[#C89D56]/20 relative overflow-hidden w-full min-w-full">
+      <section className="bg-[#0D0E11] text-white py-16 md:py-24 border-b border-[#C89D56]/30 relative overflow-hidden w-full min-w-full">
         <div className="absolute inset-0 z-0 opacity-20 w-full min-w-full h-full min-h-full overflow-hidden">
           <img
             src="/assets/projects/project_3.webp"
@@ -38,7 +38,7 @@ export default function Packages() {
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2">
               <span className="w-6 h-[1px] bg-[#C89D56]"></span>
-              <span className="text-xs uppercase tracking-[0.25em] font-sans font-bold text-[#C89D56]">
+              <span className="text-xs uppercase tracking-[0.25em] font-sans font-bold text-[#DFBC7E]">
                 TRANSPARENT PRICING &amp; SCOPE
               </span>
             </div>
@@ -63,11 +63,11 @@ export default function Packages() {
               className={`bg-white border flex flex-col justify-between transition-all scroll-mt-32 ${
                 pkg.isPopular
                   ? 'border-[#0D0E11] shadow-2xl relative lg:-translate-y-2'
-                  : 'border-[#1A1B22]/15 hover:border-[#C89D56]'
+                  : 'border-[#0D0E11]/15 hover:border-[#C89D56]'
               }`}
             >
               {pkg.isPopular && (
-                <div className="bg-[#0D0E11] text-white text-[10px] font-mono uppercase tracking-widest text-center py-1 font-semibold">
+                <div className="bg-[#0D0E11] text-[#DFBC7E] text-[10px] font-mono uppercase tracking-widest text-center py-1 font-semibold">
                   {pkg.badge}
                 </div>
               )}
@@ -86,7 +86,7 @@ export default function Packages() {
                 </div>
 
                 {/* Price Display */}
-                <div className="border-y border-[#1A1B22]/10 py-3 bg-[#F8F6F0]/50 px-3">
+                <div className="border-y border-[#0D0E11]/10 py-3 bg-[#F8F6F0]/50 px-3">
                   <div className="flex items-baseline gap-1">
                     <span className="font-serif text-3xl font-bold text-[#0D0E11]">
                       {pkg.priceDisplay}
@@ -107,12 +107,12 @@ export default function Packages() {
                 </div>
 
                 {/* Inclusions */}
-                <div className="space-y-2 pt-2 border-t border-[#1A1B22]/10">
+                <div className="space-y-2 pt-2 border-t border-[#0D0E11]/10">
                   <span className="text-xs font-bold uppercase tracking-wider text-[#0D0E11] block">
                     Key Deliverables:
                   </span>
                   {pkg.inclusions.map((inc, i) => (
-                    <div key={i} className="flex items-start gap-2 text-xs text-[#1A1B22]">
+                    <div key={i} className="flex items-start gap-2 text-xs text-[#0D0E11]">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#C89D56] shrink-0 mt-0.5" />
                       <span className="text-[11px] leading-tight text-[#4F535B]">{inc}</span>
                     </div>
@@ -126,7 +126,7 @@ export default function Packages() {
                   to={`/get-quote?package=${pkg.id}`}
                   className={`block w-full text-center py-3 text-xs font-semibold uppercase tracking-wider transition-colors ${
                     pkg.isPopular
-                      ? 'bg-[#0D0E11] hover:bg-[#DFBC7E] text-white shadow-md'
+                      ? 'bg-[#0D0E11] hover:bg-[#C89D56] hover:text-[#0D0E11] text-white shadow-md'
                       : 'border border-[#0D0E11] text-[#0D0E11] hover:bg-[#0D0E11] hover:text-white'
                   }`}
                 >
@@ -138,7 +138,7 @@ export default function Packages() {
         </div>
 
         {/* Mandatory Disclaimer Box */}
-        <div className="mt-10 p-5 bg-[#EFECE4] border border-[#1A1B22]/10 text-xs text-[#4F535B] leading-relaxed flex items-start gap-3">
+        <div className="mt-10 p-5 bg-[#EFECE4] border border-[#0D0E11]/10 text-xs text-[#4F535B] leading-relaxed flex items-start gap-3">
           <Info className="w-4 h-4 text-[#C89D56] shrink-0 mt-0.5" />
           <div>
             <strong className="text-[#0D0E11] font-semibold">Important Notice: </strong>
@@ -151,20 +151,20 @@ export default function Packages() {
       {/* ========================================================
           INTERACTIVE BUILT-UP AREA COST ESTIMATOR
           ======================================================== */}
-      <section className="py-16 bg-[#EFECE4] border-y border-[#1A1B22]/10">
+      <section className="py-16 bg-[#EFECE4] border-y border-[#0D0E11]/10">
         <div className="w-full max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 2xl:px-20">
-          <div className="max-w-5xl mx-auto bg-white border border-[#1A1B22]/10 shadow-xl overflow-hidden">
+          <div className="max-w-5xl mx-auto bg-white border border-[#0D0E11]/10 shadow-xl overflow-hidden">
             
             <div className="bg-[#0D0E11] text-white p-6 md:p-8 flex items-center justify-between">
               <div>
-                <span className="text-xs uppercase tracking-widest text-[#C89D56] font-mono block">
+                <span className="text-xs uppercase tracking-widest text-[#DFBC7E] font-mono block">
                   INTERACTIVE ESTIMATOR
                 </span>
                 <h3 className="font-serif text-2xl font-bold">
                   Quick Construction Budget Calculator
                 </h3>
               </div>
-              <Calculator className="w-8 h-8 text-[#C89D56] hidden sm:block" />
+              <Calculator className="w-8 h-8 text-[#DFBC7E] hidden sm:block" />
             </div>
 
             <div className="p-6 md:p-8 space-y-8">
@@ -209,10 +209,10 @@ export default function Packages() {
                     <button
                       key={p.id}
                       onClick={() => setCalcTier(p.id)}
-                      className={`p-3 text-left border transition-all ${
+                      className={`p-3 text-left border transition-all cursor-pointer ${
                         calcTier === p.id
                           ? 'border-[#0D0E11] bg-[#0D0E11] text-white shadow-sm'
-                          : 'border-[#1A1B22]/15 bg-white text-[#1A1B22] hover:border-[#C89D56]'
+                          : 'border-[#0D0E11]/15 bg-white text-[#0D0E11] hover:border-[#C89D56]'
                       }`}
                     >
                       <span className="text-[10px] uppercase font-mono block opacity-80">
@@ -227,7 +227,7 @@ export default function Packages() {
               </div>
 
               {/* Calculation Summary Result */}
-              <div className="bg-[#F8F6F0] p-6 border border-[#1A1B22]/10 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="bg-[#F8F6F0] p-6 border border-[#0D0E11]/10 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
                   <span className="text-[10px] uppercase font-mono tracking-widest text-[#C89D56] font-semibold block">
                     Estimated Baseline Investment
@@ -242,10 +242,10 @@ export default function Packages() {
 
                 <Link
                   to={`/get-quote?area=${calcArea}&package=${calcTier}`}
-                  className="px-6 py-3.5 bg-[#0D0E11] hover:bg-[#DFBC7E] text-white text-xs font-semibold uppercase tracking-wider transition-colors shrink-0 flex items-center gap-2"
+                  className="px-6 py-3.5 bg-[#0D0E11] hover:bg-[#C89D56] hover:text-[#0D0E11] text-white text-xs font-semibold uppercase tracking-wider transition-colors shrink-0 flex items-center gap-2 shadow-md"
                 >
                   <span>Request Formal Bill of Quantities</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#C89D56]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#DFBC7E]" />
                 </Link>
               </div>
 
@@ -273,22 +273,22 @@ export default function Packages() {
         </div>
 
         {/* Responsive Table */}
-        <div className="overflow-x-auto bg-white border border-[#1A1B22]/15 shadow-sm">
+        <div className="overflow-x-auto bg-white border border-[#0D0E11]/15 shadow-sm">
           <table className="w-full text-left text-xs text-[#4F535B] border-collapse">
             <thead>
-              <tr className="bg-[#0D0E11] text-white border-b border-[#1A1B22]/20">
+              <tr className="bg-[#0D0E11] text-white border-b border-[#0D0E11]/20">
                 <th className="p-4 font-serif font-bold text-sm w-1/5 min-w-[180px]">
                   Material / Scope
                 </th>
                 {PACKAGES.map((p) => (
                   <th key={p.id} className="p-4 font-serif font-bold text-sm min-w-[220px]">
                     <div>{p.name}</div>
-                    <div className="text-[11px] font-mono text-[#C89D56] font-normal">{p.priceDisplay} / sq.ft</div>
+                    <div className="text-[11px] font-mono text-[#DFBC7E] font-normal">{p.priceDisplay} / sq.ft</div>
                   </th>
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#1A1B22]/10">
+            <tbody className="divide-y divide-[#0D0E11]/10">
               
               {/* Structure */}
               <tr className="hover:bg-[#F8F6F0]/50">

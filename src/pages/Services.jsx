@@ -31,10 +31,10 @@ export default function Services() {
     <div className="w-full bg-[#F8F6F0] pt-24">
       
       {/* Header Banner */}
-      <section className="bg-[#0D0E11] text-white py-16 md:py-24 border-b border-[#C89D56]/20 relative overflow-hidden w-full min-w-full">
+      <section className="bg-[#0D0E11] text-white py-16 md:py-24 border-b border-[#C89D56]/30 relative overflow-hidden w-full min-w-full">
         <div className="absolute inset-0 z-0 opacity-25 w-full min-w-full h-full min-h-full overflow-hidden">
           <img
-            src="/assets/projects/project_1.webp"
+            src="/assets/projects/project_4.webp"
             alt="Chethana Ventures Capabilities"
             referrerPolicy="no-referrer"
             className="w-full min-w-full h-full min-h-full max-w-none object-cover object-center"
@@ -45,7 +45,7 @@ export default function Services() {
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2">
               <span className="w-6 h-[1px] bg-[#C89D56]"></span>
-              <span className="text-xs uppercase tracking-[0.25em] font-sans font-bold text-[#C89D56]">
+              <span className="text-xs uppercase tracking-[0.25em] font-sans font-bold text-[#DFBC7E]">
                 OUR CAPABILITIES
               </span>
             </div>
@@ -68,20 +68,20 @@ export default function Services() {
             <div
               key={service.id}
               id={service.id}
-              className="scroll-mt-28 border-b border-[#1A1B22]/15 pb-20 last:border-b-0"
+              className="scroll-mt-28 border-b border-[#0D0E11]/15 pb-20 last:border-b-0"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
                 {/* Image Col */}
                 <div className={`lg:col-span-5 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden shadow-xl border border-[#1A1B22]/10 bg-[#EFECE4] group">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden shadow-xl border border-[#0D0E11]/10 bg-[#EFECE4] group">
                     <img
                       src={service.image}
                       alt={service.title}
                       referrerPolicy="no-referrer"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
-                    <div className="absolute top-4 left-4 bg-[#0D0E11]/90 backdrop-blur-md text-white px-3 py-1 text-xs font-mono">
+                    <div className="absolute top-4 left-4 bg-[#0D0E11]/90 backdrop-blur-md text-white px-3 py-1 text-xs font-mono border border-[#C89D56]/30">
                       0{index + 1} &middot; {service.title}
                     </div>
                   </div>
@@ -107,9 +107,9 @@ export default function Services() {
                     <h3 className="text-xs uppercase tracking-wider font-bold text-[#0D0E11]">
                       Scope of Services &amp; Inclusions:
                     </h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#1A1B22]">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#0D0E11]">
                       {service.features.map((feat, i) => (
-                        <div key={i} className="flex items-start gap-2 bg-white p-2.5 border border-[#1A1B22]/10">
+                        <div key={i} className="flex items-start gap-2 bg-white p-2.5 border border-[#0D0E11]/10">
                           <CheckCircle2 className="w-3.5 h-3.5 text-[#C89D56] shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </div>
@@ -118,7 +118,7 @@ export default function Services() {
                   </div>
 
                   {/* Key Deliverables */}
-                  <div className="bg-[#EFECE4] p-4 border border-[#1A1B22]/10 space-y-2">
+                  <div className="bg-[#EFECE4] p-4 border border-[#0D0E11]/10 space-y-2">
                     <h4 className="text-xs uppercase tracking-wider font-bold text-[#0D0E11] flex items-center gap-1.5">
                       <FileText className="w-3.5 h-3.5 text-[#C89D56]" />
                       <span>Formal Deliverables &amp; Documentation:</span>
@@ -137,15 +137,15 @@ export default function Services() {
                   <div className="pt-2 flex flex-wrap items-center gap-4">
                     <Link
                       to={`/get-quote?service=${encodeURIComponent(service.title)}`}
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-[#0D0E11] hover:bg-[#DFBC7E] text-white text-xs font-semibold uppercase tracking-wider transition-colors"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-[#0D0E11] hover:bg-[#C89D56] hover:text-[#0D0E11] text-white text-xs font-semibold uppercase tracking-wider transition-colors shadow-md"
                     >
                       <span>Enquire for {service.title}</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#C89D56]" />
+                      <ArrowRight className="w-3.5 h-3.5 text-[#DFBC7E]" />
                     </Link>
 
                     <Link
                       to="/projects"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-[#1A1B22]/20 text-[#0D0E11] hover:bg-[#0D0E11] hover:text-white text-xs font-semibold uppercase tracking-wider transition-colors"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-[#0D0E11]/20 text-[#0D0E11] hover:bg-[#0D0E11] hover:text-white text-xs font-semibold uppercase tracking-wider transition-colors"
                     >
                       <span>View Sample Projects</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -161,9 +161,9 @@ export default function Services() {
       </section>
 
       {/* Turnkey Callout */}
-      <section className="py-20 bg-[#1A1B22] text-white">
+      <section className="py-20 bg-[#14151A] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <span className="text-xs uppercase tracking-[0.25em] font-sans font-bold text-[#C89D56] block">
+          <span className="text-xs uppercase tracking-[0.25em] font-sans font-bold text-[#DFBC7E] block">
             NEED A COMPREHENSIVE TURNKEY PACKAGE?
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold">
@@ -175,7 +175,7 @@ export default function Services() {
           <div className="pt-2">
             <Link
               to="/packages"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#C89D56] hover:bg-[#DFBC7E] text-[#0D0E11] font-bold text-xs font-semibold uppercase tracking-widest transition-colors shadow-lg"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#C89D56] hover:bg-[#DFBC7E] text-[#0D0E11] font-bold text-xs uppercase tracking-widest transition-colors shadow-lg"
             >
               <span>Explore Construction Packages</span>
               <ArrowRight className="w-4 h-4" />

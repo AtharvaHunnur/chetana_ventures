@@ -32,15 +32,14 @@ export default function Navbar() {
     { label: 'Services', path: '/services', hasDropdown: true },
     { label: 'Our Projects', path: '/projects' },
     { label: 'Packages', path: '/packages' },
-    { label: 'Our Team', path: '/team' },
     { label: 'Contact', path: '/contact' },
   ];
 
-  // Modern Monolithic Luxury theme: Sleek Dark Obsidian Glass
+  // Sleek Dark Obsidian Glass Navbar
   const navBackground = isScrolled
     ? 'bg-[#0D0E11]/95 backdrop-blur-md shadow-2xl border-b border-[#C89D56]/25 text-white'
     : isHome
-    ? 'bg-gradient-to-b from-black/85 via-black/40 to-transparent text-white'
+    ? 'bg-gradient-to-b from-black/85 via-black/45 to-transparent text-white'
     : 'bg-[#0D0E11] border-b border-[#C89D56]/20 text-white';
 
   return (
@@ -68,7 +67,7 @@ export default function Navbar() {
           </Link>
 
           {/* Zone 2: Navigation Links (Single-Line) */}
-          <nav className="hidden lg:flex items-center gap-7 text-xs font-semibold tracking-wider uppercase">
+          <nav className="hidden lg:flex items-center gap-8 text-xs font-semibold tracking-wider uppercase">
             {navLinks.map((item) => {
               const isActive = location.pathname === item.path;
 
